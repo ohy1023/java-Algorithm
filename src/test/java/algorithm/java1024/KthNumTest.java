@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class KthNumTest {
 
     @Test
-    @DisplayName("배열 자르기")
+    @DisplayName("프로그래머스 k번째 수")
     void copyOfRangeTest() {
         KthNum kthNum = new KthNum();
         int[] arr = new int[]{1, 5, 2, 6, 3, 7, 4};
