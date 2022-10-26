@@ -3,7 +3,7 @@ package algorithm.java1026;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HashFunction3 {
+public class HashTable3 {
     // 내부 클래스 추가
     class Node {
         private String key;
