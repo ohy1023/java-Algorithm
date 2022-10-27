@@ -26,23 +26,19 @@ public class HashPlayer {
     public String solution(String[] participant, String[] completion) {
         int sum = 0;
         String answer = "";
-        List<Player>[] lists = new ArrayList[10];
+        List<Player> lists = new ArrayList<>();
         for (String p : participant) {
-            if (lists[0] == null) {
-                lists[0] = new ArrayList<>();
-            }
-            lists[0].add(new Player(p.hashCode(),p));
+            lists.add(new Player(p.hashCode(),p));
             sum += p.hashCode();
         }
         for (String c : completion) {
             sum -= c.hashCode();
         }
-        for (Player player : lists[0]) {
+        for (Player player : lists) {
             if (player.getKey() == sum) {
                 return player.getValue();
             }
         }
-
         return "";
     }
 
