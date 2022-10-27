@@ -9,7 +9,7 @@ public class BRacer {
         Map<String, Integer> memo = new HashMap<>();
         for (int i = 0; i < participant.length; i++) {
             String key = participant[i];
-            memo.put(key, memo.getOrDefault(key, 0) + 1);
+            memo.put(key, memo.getOrDefault(key, 0) + 1); // 중복처리
         }
         for (int i = 0; i < completion.length; i++) {
             String key = completion[i];
