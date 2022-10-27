@@ -37,8 +37,13 @@ public class HashPlayer {
         for (String c : completion) {
             sum -= c.hashCode();
         }
-        System.out.println(sum);
-        return answer;
+        for (Player player : lists[0]) {
+            if (player.getKey() == sum) {
+                return player.getValue();
+            }
+        }
+
+        return "";
     }
 
     public static void main(String[] args) {
