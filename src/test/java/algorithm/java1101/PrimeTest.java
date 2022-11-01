@@ -18,6 +18,11 @@ class PrimeTest {
                 return a < b;
             }
         }));
+        // 내부 클래스는 가독성이 떨어지므로 람다식 사용
+        assertTrue(prime.isPrime(arr[1], (a, b) -> a < b)); // 가독성을 위해 람다 사용
+        assertTrue(prime.isPrime(arr[2], (a, b) -> a < b)); // 가독성을 위해 람다 사용
+        assertTrue(prime.isPrime(arr[3], (a, b) -> a < b)); // 가독성을 위해 람다 사용
+        assertFalse(prime.isPrime(arr[4], (a, b) -> a < b)); // 가독성을 위해 람다 사용
     }
 
     @Test
@@ -31,10 +36,10 @@ class PrimeTest {
                 return a <= (b / 2);
             }
         }));
-        assertTrue(prime.isPrimeV2(arr[1]));
-        assertTrue(prime.isPrimeV2(arr[2]));
-        assertTrue(prime.isPrimeV2(arr[3]));
-        assertFalse(prime.isPrimeV2(arr[4]));
+        assertTrue(prime.isPrime(arr[1], (a, b) -> a <= b / 2));
+        assertTrue(prime.isPrime(arr[2], (a, b) -> a <= b / 2));
+        assertTrue(prime.isPrime(arr[3], (a, b) -> a <= b / 2));
+        assertFalse(prime.isPrime(arr[4], (a, b) -> a <= b / 2));
 
     }
 
@@ -49,9 +54,10 @@ class PrimeTest {
                 return a * a <= b;
             }
         }));
-        assertTrue(prime.isPrimeV3(arr[2]));
-        assertTrue(prime.isPrimeV3(arr[3]));
-        assertFalse(prime.isPrimeV3(arr[4]));
+        assertTrue(prime.isPrime(arr[1], (a, b) -> a * a <= b));
+        assertTrue(prime.isPrime(arr[2], (a, b) -> a * a <= b));
+        assertTrue(prime.isPrime(arr[3], (a, b) -> a * a <= b));
+        assertFalse(prime.isPrime(arr[4], (a, b) -> a * a <= b));
 
     }
 
