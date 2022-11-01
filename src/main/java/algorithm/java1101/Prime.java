@@ -19,4 +19,13 @@ public class Prime {
         return true;
     }
 
+    boolean isPrimeV3(int num) {
+        for (int j = 2; j * j <= num; j++) {
+            if (num % j == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
