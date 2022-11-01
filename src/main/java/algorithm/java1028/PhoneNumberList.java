@@ -11,7 +11,7 @@ public class PhoneNumberList {
         }
 
         for (String s : phone_book) {
-            for (int i = 0; i < s.length(); i++) {
+            for (int i = 1; i < s.length(); i++) {
                 if (set.contains(s.substring(0, i))) {
                     return false;
                 }
