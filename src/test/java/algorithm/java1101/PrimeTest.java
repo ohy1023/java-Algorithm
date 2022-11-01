@@ -11,11 +11,11 @@ class PrimeTest {
     @DisplayName("모든 수를 확인하여 소수 찾기 O(N)")
     void test() {
         Prime prime = new Prime();
-        int[] arr = new int[]{13, 17, 19, 23,4};
+        int[] arr = new int[]{13, 17, 19, 23, 4};
         assertTrue(prime.isPrime(arr[0], new StatementStrategy() {
             @Override
             public boolean compare(int a, int b) {
-                return a<b;
+                return a < b;
             }
         }));
     }
@@ -28,7 +28,7 @@ class PrimeTest {
         assertTrue(prime.isPrime(arr[0], new StatementStrategy() {
             @Override
             public boolean compare(int a, int b) {
-                return a <= (b/2);
+                return a <= (b / 2);
             }
         }));
         assertTrue(prime.isPrimeV2(arr[1]));
