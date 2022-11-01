@@ -18,10 +18,6 @@ class PrimeTest {
                 return a<b;
             }
         }));
-//        assertTrue(prime.isPrime(arr[1]));
-//        assertTrue(prime.isPrime(arr[2]));
-//        assertTrue(prime.isPrime(arr[3]));
-//        assertFalse(prime.isPrime(arr[4]));
     }
 
     @Test
@@ -29,7 +25,12 @@ class PrimeTest {
     void testV2() {
         Prime prime = new Prime();
         int[] arr = new int[]{13, 17, 19, 23, 4};
-        assertTrue(prime.isPrimeV2(arr[0]));
+        assertTrue(prime.isPrime(arr[0], new StatementStrategy() {
+            @Override
+            public boolean compare(int a, int b) {
+                return a <= (b/2);
+            }
+        }));
         assertTrue(prime.isPrimeV2(arr[1]));
         assertTrue(prime.isPrimeV2(arr[2]));
         assertTrue(prime.isPrimeV2(arr[3]));
@@ -42,8 +43,12 @@ class PrimeTest {
     void testV3() {
         Prime prime = new Prime();
         int[] arr = new int[]{13, 17, 19, 23, 4};
-        assertTrue(prime.isPrimeV3(arr[0]));
-        assertTrue(prime.isPrimeV3(arr[1]));
+        assertTrue(prime.isPrime(arr[1], new StatementStrategy() {
+            @Override
+            public boolean compare(int a, int b) {
+                return a * a <= b;
+            }
+        }));
         assertTrue(prime.isPrimeV3(arr[2]));
         assertTrue(prime.isPrimeV3(arr[3]));
         assertFalse(prime.isPrimeV3(arr[4]));
