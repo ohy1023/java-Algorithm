@@ -15,12 +15,11 @@ public class RemoveMultipleOf {
                 if (isNotContain(arrayList, i)) {
                     break;
                 }
-                if (arrayList.get(j) % i == 0 && arrayList.get(j) > i) {
+                if (arrayList.get(j) % i == 0 && arrayList.get(j) != i) {
                     arrayList.remove(j);
                 }
             }
         }
-
 
         System.out.println(arrayList);
         System.out.println(arrayList.size());
