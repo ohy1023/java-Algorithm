@@ -22,8 +22,6 @@ public class RemoveMultipleOf {
         }
 
 
-//        arrayList.removeIf(num -> num % 2 == 0 && num != 2);
-
         System.out.println(arrayList);
         System.out.println(arrayList.size());
     }
