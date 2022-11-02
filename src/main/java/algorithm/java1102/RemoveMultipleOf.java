@@ -11,7 +11,7 @@ public class RemoveMultipleOf {
             arrayList.add(i);
         }
         for (int i = 2; i <cnt ; i++) {
-            if (isContain(arrayList, i)) {
+            if (isNotContain(arrayList, i)) {
                 break;
             }
             for (int j = 0; j < arrayList.size(); j++) {
@@ -28,7 +28,7 @@ public class RemoveMultipleOf {
         System.out.println(arrayList.size());
     }
 
-    private static boolean isContain(List<Integer> arrayList, int i) {
+    private static boolean isNotContain(List<Integer> arrayList, int i) {
         return !(arrayList.contains(i));
     }
 }
