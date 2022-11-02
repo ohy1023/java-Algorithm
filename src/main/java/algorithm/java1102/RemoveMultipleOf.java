@@ -11,11 +11,11 @@ public class RemoveMultipleOf {
             arrayList.add(i);
         }
         for (int i = 2; i <cnt ; i++) {
-            if (isNotContain(arrayList, i)) {
-                break;
-            }
+//            if (isNotContain(arrayList, i)) {
+//                break;
+//            }
             for (int j = 0; j < arrayList.size(); j++) {
-                if (arrayList.get(j) % i == 0 && arrayList.get(j) != i) {
+                if (arrayList.get(j) % i == 0 && arrayList.get(j) > i) {
                     arrayList.remove(j);
                 }
             }
