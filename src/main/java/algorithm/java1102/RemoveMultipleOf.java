@@ -7,10 +7,10 @@ public class RemoveMultipleOf {
     public static void main(String[] args) {
         List<Integer> arrayList = new ArrayList<>();
         int cnt = 50;
-        for (int i = 2; i < cnt; i++) {
+        for (int i = 2; i <= cnt; i++) {
             arrayList.add(i);
         }
-        for (int i = 2; i <cnt ; i++) {
+        for (int i = 2; i * i <= cnt ; i++) {
 //            if (isNotContain(arrayList, i)) {
 //                break;
 //            }
