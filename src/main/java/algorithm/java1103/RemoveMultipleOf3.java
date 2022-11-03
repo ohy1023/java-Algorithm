@@ -13,9 +13,10 @@ public class RemoveMultipleOf3 {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = i + 2;
         }
-
-        for (int j = 2; j < arr.length; j += 2) {
-            checks[j] = false;
+        for (int i = 2; i < arr.length; i++) {
+            for (int j = 2*(i-1); j < arr.length; j += i) {
+                checks[j] = false;
+            }
         }
 
         for (int i = 0; i < checks.length; i++) {
