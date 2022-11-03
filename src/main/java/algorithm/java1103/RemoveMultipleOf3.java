@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class RemoveMultipleOf3 {
     public static void main(String[] args) {
-        int N = 50;
+        int N = 10000000;
         int cnt = 0;
         int[] arr = new int[N - 1];
         boolean[] checks = new boolean[arr.length];
