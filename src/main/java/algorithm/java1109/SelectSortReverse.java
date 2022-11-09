@@ -7,7 +7,7 @@ public class SelectSortReverse {
         for (int i = 0; i < arr.length - 1; i++) {
             int idx = i;
             for (int j = i + 1; j < arr.length; j++) {
-                if (sortStrategy.sortHow(arr[idx],arr[j])) {
+                if (sortStrategy.sortHow(arr[idx], arr[j])) {
                     idx = j;
                 }
             }
@@ -26,12 +26,8 @@ public class SelectSortReverse {
     public static void main(String[] args) {
         int[] arr = new int[]{2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
         SelectSortReverse ss = new SelectSortReverse();
-        System.out.println(Arrays.toString(ss.solution(arr, new SortStrategy() {
-            @Override
-            public boolean sortHow(int a, int b) {
-                return a < b;
-            }
-        })));
+        SortStrategy sort = (a, b) -> (a < b);
+        System.out.println(Arrays.toString(ss.solution(arr, sort)));
 
 
     }
