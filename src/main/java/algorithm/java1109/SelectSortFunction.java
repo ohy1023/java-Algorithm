@@ -48,7 +48,7 @@ public class SelectSortFunction {
         Function<Integer[], Boolean> fn = (arr1) -> arr1[0] > arr1[1];
         System.out.println(fn.apply(new Integer[]{10, 20}));
 
-        //
+        //BiPredicate 사용
         BiPredicate<Integer, Integer> bp = (a, b) -> a < b;
         System.out.println(Arrays.toString(ss.solution(arr, bp)));
 
