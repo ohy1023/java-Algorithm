@@ -26,8 +26,8 @@ public class SelectSortReverse {
     public static void main(String[] args) {
         int[] arr = new int[]{2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
         SelectSortReverse ss = new SelectSortReverse();
-        SortStrategy sort = (a, b) -> (a < b);
-        System.out.println(Arrays.toString(ss.solution(arr, sort)));
+        SortStrategy sortHow = (a, b) -> (a < b);
+        System.out.println(Arrays.toString(ss.solution(arr, sortHow)));
 
 
     }
