@@ -16,7 +16,7 @@ public class SelectSort {
         System.out.println(minIdx);
 
         // i가 1일때 최소값 idx 찾기
-        for (int i = 1; i < arr.length; i++) {
+        for (int i = 2; i < arr.length; i++) {
             if (arr[1] > arr[i]) {
                 minIdx = i;
             }
