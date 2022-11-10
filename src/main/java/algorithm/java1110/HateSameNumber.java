@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
-public class ArraysNum {
+public class HateSameNumber {
     int[] solutionByList(int[] arr) {
         List<Integer> integerList = new ArrayList<>();
         integerList.add(arr[0]);
@@ -39,10 +39,11 @@ public class ArraysNum {
     }
 
 
+
     public static void main(String[] args) {
-        ArraysNum an = new ArraysNum();
+        HateSameNumber hsn = new HateSameNumber();
         int[] arr = new int[]{1, 1, 3, 3, 0, 1, 1};
-        System.out.println(Arrays.toString(an.solutionByList(arr)));
-        System.out.println(Arrays.toString(an.solutionByStack(arr)));
+        System.out.println(Arrays.toString(hsn.solutionByList(arr)));
+        System.out.println(Arrays.toString(hsn.solutionByStack(arr)));
     }
 }
