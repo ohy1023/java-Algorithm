@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class SecretMap {
 
-    //내코드
+    //내코드 - 자리수 문제로 테스트 실패
     String[] solution(int n, int[] arr1, int[] arr2) {
         String[] binaryList = new String[n];
         String[] answer = new String[n];
@@ -19,19 +19,31 @@ public class SecretMap {
             String binaryString = Integer.toBinaryString(num);
             binaryList[i] = binaryString;
         }
-
+        System.out.println(Arrays.toString(binaryList));
         for (int i = 0; i < n; i++) {
             String res = "";
             for (int j = 0; j < binaryList[i].length(); j++) {
                 if (binaryList[i].charAt(j) == '1') {
-                    res += "#";
+                    res += '#';
                 } else {
-                    res += " ";
+                    res += ' ';
                 }
             }
             answer[i] = res;
         }
 
+
+        return answer;
+    }
+
+    String[] solution2(int n, int[] arr1, int[] arr2) {
+        String[] answer = new String[n];
+        for (int i = 0; i < n; i++) {
+            int num = arr1[i] | arr2[i];
+            answer[i] = Integer.toBinaryString(num).replace('1', '#').replace('0', ' ');
+            answer[i] = " ".repeat(n - answer[i].length()) + answer[i];
+
+        }
 
         return answer;
     }
@@ -47,7 +59,7 @@ public class SecretMap {
     }
 
     // 강사님 코드
-    String solution2(int n, int[] arr1, int[] arr2) {
+    String solution3(int n, int[] arr1, int[] arr2) {
         String answer = "";
         String[] sArr1 = new String[n];
         String[] sArr2 = new String[n];
@@ -69,7 +81,7 @@ public class SecretMap {
 
     public static void main(String[] args) {
         SecretMap sm = new SecretMap();
-        String[] solution = sm.solution(6, new int[]{46, 33, 33 ,22, 31, 50}, new int[]{27 ,56, 19, 14, 14, 10});
+        String[] solution = sm.solution2(6, new int[]{46, 33, 33 ,22, 31, 50}, new int[]{27 ,56, 19, 14, 14, 10});
         System.out.println(Arrays.toString(solution));
 
     }
