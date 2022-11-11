@@ -2,7 +2,10 @@ package algorithm.java1111;
 
 public class ToBinary {
     public static void main(String[] args) {
-        int num = 0;
+        int num = 30;
+        if (num == 0) {
+            System.out.println(0);
+        }
         String ans = "";
         while (num > 0) {
             String res = String.valueOf(num % 2);
