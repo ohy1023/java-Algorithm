@@ -8,12 +8,14 @@ package algorithm.java1111;
  */
 public class SecretMap {
 
-    String solution(int[] arr1, int[] arr2) {
-        int
-        for (int i = 0; i < arr1.length; i++) {
+    String[] solution(int n, int[] arr1, int[] arr2) {
+        String[] answer = new int[n];
+        for (int i = 0; i < n; i++) {
             int num = arr1[i] | arr2[i];
         }
+        return answer;
     }
+
     public static void main(String[] args) {
         int num = 9 | 30;
         String binaryString = Integer.toBinaryString(num);
