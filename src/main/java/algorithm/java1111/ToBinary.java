@@ -1,6 +1,15 @@
 package algorithm.java1111;
 
 public class ToBinary {
+
+    String getBinaryString(int n) {
+        String answer = "";
+        while (n > 0) {
+            answer += n % 2;  // string + int = string
+            n /= 2;
+        }
+        return answer;
+    }
     public static void main(String[] args) {
         int num = 30;
         if (num == 0) {
