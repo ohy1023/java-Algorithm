@@ -10,6 +10,7 @@ import java.util.Arrays;
  */
 public class SecretMap {
 
+    //내코드
     String[] solution(int n, int[] arr1, int[] arr2) {
         String[] binaryList = new String[n];
         String[] answer = new String[n];
@@ -19,7 +20,20 @@ public class SecretMap {
             binaryList[i] = binaryString;
         }
 
-        return binaryList;
+        for (int i = 0; i < n; i++) {
+            String res = "";
+            for (int j = 0; j < n; j++) {
+                if (binaryList[i].charAt(j) == '1') {
+                    res += "#";
+                } else {
+                    res += " ";
+                }
+            }
+            answer[i] = res;
+        }
+
+
+        return answer;
     }
 
     // 강사님 코드
