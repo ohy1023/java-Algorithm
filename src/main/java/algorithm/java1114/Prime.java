@@ -1,6 +1,5 @@
 package algorithm.java1114;
 
-import java.util.Arrays;
 
 public class Prime {
     int solution(int n) {
@@ -29,6 +28,6 @@ public class Prime {
 
     public static void main(String[] args) {
         Prime prime = new Prime();
-        System.out.println(prime.solution(50));
+        System.out.println(prime.solution(100000000));
     }
 }
