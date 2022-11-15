@@ -24,16 +24,25 @@ public class QuickSortRecursion {
         midList.add(pivot);
 
         // 2.기준값 기준으로 작으면 왼쪽, 크면 오른쪽에 담기
-        int lt = mid - 1;
-        int rt = mid + 1;
-        while (lt != -1) {
-            if (arr[lt] <= pivot) {
-                smallList.add(arr[lt]);
-            } else {
-                bigList.add(arr[lt]);
+        for (int i = 0; i < arr.length; i++) {
+            if (pivot > arr[i]) {
+                smallList.add(arr[i]);
+            } else if (pivot < arr[i]) {
+                bigList.add(arr[i]);
             }
-            lt--;
         }
+
+
+//        int lt = mid - 1;
+//        int rt = mid + 1;
+//        while (lt != -1) {
+//            if (arr[lt] <= pivot) {
+//                smallList.add(arr[lt]);
+//            } else {
+//                bigList.add(arr[lt]);
+//            }
+//            lt--;
+//        }
 
         System.out.println(smallList);
         System.out.println(bigList);
