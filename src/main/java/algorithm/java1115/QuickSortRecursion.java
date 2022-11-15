@@ -15,6 +15,10 @@ public class QuickSortRecursion {
 
     List<Integer> quickSort(List<Integer> arr) {
 
+        if (arr.size() <= 1) {
+            return arr;
+        }
+
         // 힌트) 리스트 3개에 담기
         List<Integer> bigList = new ArrayList<>();
         List<Integer> smallList = new ArrayList<>();
@@ -35,7 +39,7 @@ public class QuickSortRecursion {
             }
         }
 
-        return merge(quickSort(smallList), quickSort(midList), quickSort(bigList));
+        return merge(quickSort(smallList), midList, quickSort(bigList));
     }
 
     public static void main(String[] args) {
