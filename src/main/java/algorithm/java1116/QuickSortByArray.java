@@ -15,21 +15,25 @@ public class QuickSortByArray {
     int[] solution(int[] arr) {
         int lt = 0;
         int rt = arr.length - 1;
-        int pivot = arr[(lt + rt) / 2];
+        int mid = (lt + rt) / 2;
+
+        int pivot = arr[mid];
         System.out.println(pivot);
         while (arr[lt] < pivot) {
             lt++;
         }
-        int temp = arr[lt];
-        arr[lt] = pivot;
-        arr[(lt + rt) / 2] = temp;
+        while (arr[rt] > pivot) {
+            rt--;
+        }
+
+
         return arr;
     }
 
 
     public static void main(String[] args) {
         QuickSortByArray qsba = new QuickSortByArray();
-        int[] arr = new int[]{20, 18, 5, 19, 40, 50, 5, 25};
+        int[] arr = new int[]{20, 60, 5, 19, 40, 50, 5, 45};
         System.out.println(Arrays.toString(qsba.solution(arr)));
     }
 }
