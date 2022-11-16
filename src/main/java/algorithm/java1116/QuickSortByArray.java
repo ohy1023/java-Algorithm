@@ -15,12 +15,17 @@ public class QuickSortByArray {
     int[] solution(int[] arr) {
         int lt = 0;
         int rt = arr.length - 1;
-        int pivot = arr[(lt+rt)/2];
+        int pivot = arr[(lt + rt) / 2];
         System.out.println(pivot);
-//        while (arr[l]) {
-//        }
+        while (arr[lt] < pivot) {
+            lt++;
+        }
+        int temp = arr[lt];
+        arr[lt] = pivot;
+        arr[(lt + rt) / 2] = temp;
         return arr;
     }
+
 
     public static void main(String[] args) {
         QuickSortByArray qsba = new QuickSortByArray();
