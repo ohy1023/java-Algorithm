@@ -15,9 +15,8 @@ public class QuickSortByArray {
     int[] solution(int[] arr) {
         int lt = 0;
         int rt = arr.length - 1;
-        int mid = (lt + rt) / 2;
 
-        int pivot = arr[mid];
+        int pivot = arr[arr.length/2];
         System.out.println(pivot);
         while (arr[lt] < pivot) {
             lt++;
@@ -26,6 +25,13 @@ public class QuickSortByArray {
             rt--;
         }
 
+        int temp = arr[lt];
+        arr[lt] = arr[rt];
+        arr[rt] = temp;
+
+        lt += 1;
+        rt -= 1;
+
 
         return arr;
     }
@@ -33,7 +39,7 @@ public class QuickSortByArray {
 
     public static void main(String[] args) {
         QuickSortByArray qsba = new QuickSortByArray();
-        int[] arr = new int[]{20, 60, 5, 19, 40, 50, 5, 45};
+        int[] arr = new int[]{20, 18, 5, 19, 40, 50, 5, 25};
         System.out.println(Arrays.toString(qsba.solution(arr)));
     }
 }
