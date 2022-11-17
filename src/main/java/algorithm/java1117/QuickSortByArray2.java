@@ -32,12 +32,12 @@ public class QuickSortByArray2 {
 
             // 교환 후 lt +1, rt -1
             swap(arr, lt, rt);
-
             lt++;
             rt--;
 
             System.out.printf("현재 leftidx 위치 %d \n",lt);
             System.out.printf("현재 rightidx 위치 %d \n",rt);
+            System.out.println(Arrays.toString(arr));
             System.out.println("----------------------");
         }
 
@@ -54,6 +54,6 @@ public class QuickSortByArray2 {
     public static void main(String[] args) {
         QuickSortByArray2 qsba = new QuickSortByArray2();
         int[] arr = new int[]{20, 18, 5, 19, 40, 50, 5, 25};
-        System.out.println(Arrays.toString(qsba.solution(arr)));
+        qsba.solution(arr);
     }
 }
