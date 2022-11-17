@@ -12,12 +12,12 @@ import java.util.Arrays;
  */
 
 public class QuickSortByArray {
+
     int[] solution(int[] arr) {
         int lt = 0;
         int rt = arr.length - 1;
 
         int pivot = arr[arr.length/2];
-        System.out.println(pivot);
         while (arr[lt] < pivot) {
             lt++;
         }
