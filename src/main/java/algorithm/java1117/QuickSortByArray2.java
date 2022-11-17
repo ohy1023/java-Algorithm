@@ -9,18 +9,21 @@ import java.util.Arrays;
  * 3. pivot보다 arr[rightIdx]가 크면 rightIdx -=1
  * 4. leftIdx <= rightIdx 면 교환
  * 5. 교환 했으면 leftIdx+=1, rightIdx -= 1
+ * 6. leftIdx <= rightIdx 보다 작을떄 까지 반복
+ * 7. 그룹을 나누어 재귀 설정
+ * 8. 재귀 탈출 조건 설정
  */
 
 public class QuickSortByArray2 {
 
-    int[] solution(int[] arr) {
+    int[] solution(int[] arr, int startIdx, int endIdx) {
 
-        int lt = 0;
-        int rt = arr.length - 1;
 
-        int pivot = arr[arr.length / 2];
+        int lt = startIdx;
+        int rt = endIdx;
 
-        // -------여기 아랫줄이 반복됨 ---------
+        int pivot = arr[(lt + rt) / 2];
+
         while (lt <= rt) {
 
             while (arr[lt] < pivot) {
@@ -31,14 +34,22 @@ public class QuickSortByArray2 {
             }
 
             // 교환 후 lt +1, rt -1
-            swap(arr, lt, rt);
-            lt++;
-            rt--;
+            if (lt <= rt) {
 
-            System.out.printf("현재 leftidx 위치 %d \n",lt);
-            System.out.printf("현재 rightidx 위치 %d \n",rt);
-            System.out.println(Arrays.toString(arr));
-            System.out.println("----------------------");
+                swap(arr, lt, rt);
+                lt++;
+                rt--;
+
+            }
+
+        }
+
+        // 그룹 나누기 + 재귀 탈출 조건 설정
+        if (startIdx < rt) {
+            solution(arr, startIdx, rt);
+        }
+        if (endIdx > lt) {
+            solution(arr, lt, endIdx);
         }
 
         return arr;
@@ -54,6 +65,6 @@ public class QuickSortByArray2 {
     public static void main(String[] args) {
         QuickSortByArray2 qsba = new QuickSortByArray2();
         int[] arr = new int[]{20, 18, 5, 19, 40, 50, 5, 25};
-        qsba.solution(arr);
+        System.out.println(Arrays.toString(qsba.solution(arr, 0, arr.length - 1)));
     }
 }
