@@ -6,7 +6,7 @@ public class CaesarCipher {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (c == ' ') {
-                answer += ' ';
+                answer += c;
             } else {
                 if (c >= 'a') {
                     if (c + n > 'z') {
