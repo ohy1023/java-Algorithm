@@ -10,17 +10,17 @@ public class CaesarCipher {
             } else {
                 if (c >= 'a') {
                     if (c + n > 'z') {
-                        c = (char) ('a' + (c + (n-1) - 122));
+                        c = (char) ('a' + (c + (n - 1) - 122));
                         answer += (char) (c);
                     } else {
-                        answer += (char)(c + n);
+                        answer += (char) (c + n);
                     }
                 } else if (c >= 'A') {
                     if (c + n > 'Z') {
-                        c = (char) ('A' + (c + (n-1) - 90));
+                        c = (char) ('A' + (c + (n - 1) - 90));
                         answer += (char) (c);
                     } else {
-                        answer += (char)(c + n);
+                        answer += (char) (c + n);
                     }
                 }
             }
@@ -32,6 +32,6 @@ public class CaesarCipher {
         CaesarCipher cc = new CaesarCipher();
         String s = "a B z";
         int n = 4;
-        System.out.println(cc.solution(s,n));
+        System.out.println(cc.solution(s, n));
     }
 }
