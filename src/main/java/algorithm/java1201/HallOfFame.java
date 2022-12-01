@@ -8,10 +8,10 @@ public class HallOfFame {
         PriorityQueue<Integer> queue = new PriorityQueue<>();
         int[] answer = new int[score.length];
         for (int j = 0; j < score.length; j++) {
-            if (queue.size() >= k && score[j] > queue.peek()) {
-                queue.poll();
+            if (queue.size() < k) {
                 queue.offer(score[j]);
-            } else if (queue.size() < k) {
+            } else if (score[j] > queue.peek()) {
+                queue.poll();
                 queue.offer(score[j]);
             }
             answer[j] = queue.peek();
