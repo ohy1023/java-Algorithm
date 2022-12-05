@@ -25,7 +25,6 @@ public class Heap {
 
     public static void main(String[] args) {
 
-
         int[] arr = {6, 5, 7, 8};
         Heap heap = new Heap();
         int[] heapArr = heap.makeHeap(arr, 1);
