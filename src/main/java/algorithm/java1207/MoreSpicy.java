@@ -14,7 +14,7 @@ public class MoreSpicy {
         int answer = 0;
         while (pq.peek() < K) {
             if (pq.size() == 1) {
-                return -1
+                return -1;
             }
             int mix = pq.poll() + (pq.poll() * 2);
             pq.add(mix);
