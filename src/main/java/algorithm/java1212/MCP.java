@@ -12,12 +12,13 @@ public class MCP {
                     dp[i][j] = dp[i][j - 1] + arr[i][j];
                 } else if (j == 1) {
                     dp[i][j] = dp[i - 1][j] + arr[i][j];
+                } else {
+                    dp[i][j] = Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + arr[i][j];
                 }
-                System.out.print(dp[i][j] + " ");
             }
-            System.out.println();
+            ;
         }
-        return 0;
+        return dp[arr.length - 1][arr[0].length - 1];
     }
 
     public static void main(String[] args) {
