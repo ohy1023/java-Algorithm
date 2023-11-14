@@ -34,6 +34,7 @@ class Point implements Comparable<Point> {
     }
 }
 
+
 public class Main {
 
     public static void main(String[] args) throws IOException {
