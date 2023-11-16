@@ -1,4 +1,4 @@
-package baekjoon.binary_search;
+package baekjoon.sorting;
 
 import java.io.BufferedReader;
 import java.io.IOException;
