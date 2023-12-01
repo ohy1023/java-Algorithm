@@ -1,8 +1,12 @@
-package programmers.level1;
+package programmers.level1.크레인_인형_뽑기_게임;
 
 import java.util.Stack;
 
-public class 크레인_인형_뽑기_게임 {
+/**
+ * 프로그래머스 크레인 인형 뽑기 게임 (level.2) - 스택
+ * https://school.programmers.co.kr/learn/courses/30/lessons/64061?language=java
+ */
+public class Solution {
     public int check(Stack<Integer> stack) {
         int cnt = 0;
         if (stack.size() >= 2) {
@@ -42,7 +46,7 @@ public class 크레인_인형_뽑기_게임 {
                 {3, 5, 1, 3, 1}
         };
         int[] moves = new int[]{1, 5, 3, 5, 1, 2, 1, 4};
-        크레인_인형_뽑기_게임 c = new 크레인_인형_뽑기_게임();
+        Solution c = new Solution();
 
         System.out.println(c.solution(board, moves));
     }
