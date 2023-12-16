@@ -1,7 +1,7 @@
 package programmers.level1.최소공약수와_최소공배수;
 
 /**
- * 프로그래머스 level 1 최소공약수와 최소공배수 - 유클리드 호제법
+ * 프로그래머스 level 1 최대공약수와 최소공배수 - 유클리드 호제법
  * https://school.programmers.co.kr/learn/courses/30/lessons/12940
  */
 class Solution {
