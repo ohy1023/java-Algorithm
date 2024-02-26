@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
- * 백준 18310 안테나 실버 3 - 이분탐색
+ * 백준 18310 안테나 실버 3 - 정렬
  * https://www.acmicpc.net/problem/18310
  */
 public class BOJ18310 {
