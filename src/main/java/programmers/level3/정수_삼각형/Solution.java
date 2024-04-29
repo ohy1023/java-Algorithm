@@ -21,7 +21,7 @@ class Solution {
             dp[i][0] = dp[i - 1][0] + triangle[i][0];
 
             // 각 층의 중간 요소에 대해 최적의 합을 계산하는 루프
-            for (int j = 1; j <= i; j++) {
+            for (int j = 1; j < i; j++) {
                 dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - 1]) + triangle[i][j];
             }
 
