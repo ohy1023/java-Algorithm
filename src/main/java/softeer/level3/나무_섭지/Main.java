@@ -4,125 +4,97 @@ import java.io.*;
 import java.util.*;
 
 /**
- * 나무 섭지 (Level.3) - BFS
+ * 소프티어 나무 섭지 (Level.3) - BFS
  * https://softeer.ai/practice/7726
  */
 public class Main {
-    static int n, m;
-    static char[][] map;
-    static int[][] visited;
-    static int[][] trace;
-    static Queue<int[]> namwoo = new LinkedList<>();
-    static Queue<int[]> ghost = new LinkedList<>();
-    static int[] dx = new int[]{-1, 0, 1, 0};
-    static int[] dy = new int[]{0, -1, 0, 1};
-    static final int INF = Integer.MAX_VALUE;
+    static int n, m; // 맵의 크기
+    static char[][] board; // 맵 정보
+    static int[][] namwooVisited; // 남우의 이동 경로 기록
+    static int[][] ghostVisited; // 고스트의 이동 경로 기록
+    static Queue<int[]> namwoo = new LinkedList<>(); // 남우의 BFS 큐
+    static Queue<int[]> ghost = new LinkedList<>(); // 고스트의 BFS 큐
+    static int[] dx = new int[]{-1, 0, 1, 0}; // 방향 배열 (상, 좌, 하, 우)
+    static int[] dy = new int[]{0, -1, 0, 1}; // 방향 배열 (상, 좌, 하, 우)
 
-    // 고스트가 이동 가능한지 확인하는 메서드
-    public static boolean canGoGhost(int nx, int ny) {
-        if (nx < 0 || ny < 0 || nx >= n || ny >= m) return false;
-        return visited[nx][ny] == INF;
-    }
-
-    // 남우가 이동 가능한지 확인하는 메서드
-    static boolean canGoNamwoo(int x, int y, int nx, int ny) {
-        if (nx < 0 || ny < 0 || nx >= n || ny >= m) return false;
-        if (map[nx][ny] == '#') return false;
-        if (trace[nx][ny] > 0) return false;
-        return visited[nx][ny] > trace[x][y] + 1;
-    }
-
-    // 고스트의 BFS 탐색 메서드
-    public static void bfsGhost() {
+    // 고스트의 BFS
+    public static void ghostBfs() {
         while (!ghost.isEmpty()) {
-            int[] curGhostCoordinate = ghost.poll();
-            int x = curGhostCoordinate[0];
-            int y = curGhostCoordinate[1];
+            int[] ghostCoord = ghost.poll();
+            int x = ghostCoord[0];
+            int y = ghostCoord[1];
 
-            // 상하좌우 이동을 위한 반복문
             for (int i = 0; i < 4; i++) {
-                int nx = x + dx[i];
-                int ny = y + dy[i];
+                int gx = x + dx[i];
+                int gy = y + dy[i];
 
-                // 이동 가능한 위치이고 방문하지 않았다면
-                if (canGoGhost(nx, ny)) {
-                    // 방문 표시 및 큐에 추가
-                    visited[nx][ny] = visited[x][y] + 1;
-                    ghost.offer(new int[]{nx, ny});
-                }
+                if (gx < 0 || gy < 0 || gx >= n || gy >= m) continue; // 범위를 벗어나면 무시
+                if (ghostVisited[gx][gy] > 0) continue; // 이미 방문한 곳이면 무시
+                ghost.offer(new int[]{gx, gy}); // 큐에 추가
+                ghostVisited[gx][gy] = ghostVisited[x][y] + 1; // 이동 거리 기록
             }
         }
     }
 
-    // 남우의 BFS 탐색 메서드
-    public static boolean bfsNamwoo() {
+    // 남우의 BFS
+    public static boolean namwooBfs() {
         while (!namwoo.isEmpty()) {
-            int[] curNamwooCoordinate = namwoo.poll();
-            int x = curNamwooCoordinate[0];
-            int y = curNamwooCoordinate[1];
+            int[] namwooCoord = namwoo.poll();
+            int x = namwooCoord[0];
+            int y = namwooCoord[1];
 
-            // 상하좌우 이동을 위한 반복문
             for (int i = 0; i < 4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
 
-                // 이동 가능한 위치이고 이동할 수 있다면
-                if (canGoNamwoo(x, y, nx, ny)) {
-                    // 경로 표시 및 큐에 추가
-                    trace[nx][ny] = trace[x][y] + 1;
-                    namwoo.offer(new int[]{nx, ny});
-                    // 목적지인 'D'에 도달했다면 true 반환
-                    if (map[nx][ny] == 'D') {
-                        return true;
-                    }
-                }
+                if (nx < 0 || ny < 0 || nx >= n || ny >= m) continue; // 범위를 벗어나면 무시
+                if (board[nx][ny] == '#') continue; // 벽이면 무시
+                if (namwooVisited[nx][ny] > 0) continue; // 이미 방문한 곳이면 무시
+                if (namwooVisited[x][y] + 1 >= ghostVisited[nx][ny]) continue; // 고스트가 도착할 곳이면 무시
+                namwoo.offer(new int[]{nx, ny}); // 큐에 추가
+                namwooVisited[nx][ny] = namwooVisited[x][y] + 1; // 이동 거리 기록
+
+                if (board[nx][ny] == 'D') return true; // 도착 지점에 도달하면 true 반환
             }
         }
-        // 목적지에 도달하지 못했다면 false 반환
-        return false;
+
+        return false; // 탈출 실패
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
 
-        map = new char[n][m];
-        trace = new int[n][m];
-        visited = new int[n][m];
+        board = new char[n][m];
+        ghostVisited = new int[n][m];
+        namwooVisited = new int[n][m];
 
-        // 초기화
         for (int i = 0; i < n; i++) {
-            Arrays.fill(visited[i], INF);
-        }
-
-        // 입력 받기
-        for (int i = 0; i < n; i++) {
-            String line = br.readLine();
+            char[] info = br.readLine().toCharArray();
             for (int j = 0; j < m; j++) {
-                map[i][j] = line.charAt(j);
-                // 시작 위치 및 고스트 위치 큐에 추가
-                if (map[i][j] == 'N') {
-                    namwoo.offer(new int[]{i, j});
-                    trace[i][j] = 1;
-                } else if (map[i][j] == 'G') {
+                board[i][j] = info[j];
+                if (board[i][j] == 'G') { // 고스트의 위치
                     ghost.offer(new int[]{i, j});
-                    visited[i][j] = 1;
+                    ghostVisited[i][j] = 1;
+                } else if (board[i][j] == 'N') { // 남우의 위치
+                    namwoo.offer(new int[]{i, j});
+                    namwooVisited[i][j] = 1;
                 }
             }
         }
 
-        // 고스트의 이동 경로 탐색
-        bfsGhost();
-        // 남우의 이동 경로 탐색 및 탈출 여부 확인
-        boolean isEscape = bfsNamwoo();
+        ghostBfs(); // 고스트의 BFS 실행
 
-        // 결과 출력
+        boolean isEscape = namwooBfs(); // 남우의 BFS 실행
+
         if (isEscape) {
-            System.out.println("Yes");
+            System.out.println("Yes"); // 탈출 성공
         } else {
-            System.out.println("No");
+            System.out.println("No"); // 탈출 실패
         }
     }
 }
