@@ -49,3 +49,4 @@ bin/
 /gradle/wrapper/gradle-wrapper.properties
 
 src/main/java/Main.java
+src/main/java/Solution.java
